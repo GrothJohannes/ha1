@@ -129,18 +129,24 @@ class CalculatorTest {
 
 
     @Test
-    @DisplayName("should display result of Zero minus a positiv Number")
-    void testSubtractingFromZero() {
+    @DisplayName("should display result of after deleting previous input")
+    void testDeletingOnlyOneNumber() {
         Calculator calc = new Calculator();
 
-        calc.pressDigitKey(0);
-        calc.pressBinaryOperationKey("-");
         calc.pressDigitKey(2);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(3);
 
-        String expected = "-2";
-        String actual = calc.readScreen();
+        calc.pressClearKey();
 
-        assertEquals(expected, actual);
+        assertEquals("0", calc.readScreen());
+
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+
+        assertEquals("4", calc.readScreen());
+
+
     }
 
 
