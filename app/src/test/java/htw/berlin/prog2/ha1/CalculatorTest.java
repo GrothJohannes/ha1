@@ -115,13 +115,13 @@ class CalculatorTest {
         Calculator calc = new Calculator();
 
         calc.pressDigitKey(3);
-        calc.pressBinaryOperationKey("*");
+        calc.pressBinaryOperationKey("x");
         calc.pressDigitKey(3);
 
         calc.pressEqualsKey();
         calc.pressEqualsKey();
 
-        String expected = "27";
+        String expected = "27"; //Erwartet 3 x 3 x 3 = 27
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
